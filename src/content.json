@@ -1,0 +1,16 @@
+{
+    "searchButton": {
+        "text": "SEND"
+    },
+    "searchAddress": {
+        "placehoder": "https://jsonplaceholder.typicode.com/todos/"
+    },
+    "dropDownMenu": {
+        "options": [
+            "GET",
+            "POST",
+            "PUT",
+            "DELETE"
+        ]
+    }
+}
