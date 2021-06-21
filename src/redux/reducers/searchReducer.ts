@@ -13,8 +13,6 @@ const initState = {
 export const searchReducer = (state = initState, action: Action) => {
   switch (action.type) {
     case SET_SEARCH_ITEM:
-      console.log("set search here");
-      console.log(action);
       return {
         ...state,
         searchAddress: action.payload?.address,
