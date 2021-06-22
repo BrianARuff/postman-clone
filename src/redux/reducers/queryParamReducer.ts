@@ -1,7 +1,12 @@
-import { SET_QUERY_PARAMS_KEY, SET_QUERY_PARAMS_VALUE } from "../types";
+import { setKeyValueToTotal } from "../actions/setKeyValueToTotal";
+import {
+  ADD_KEY_VALUE_TO_TOTAL,
+  SET_QUERY_PARAMS_KEY,
+  SET_QUERY_PARAMS_VALUE,
+} from "../types";
 
 const initState = {
-  key: "",
+  keyValue: "",
   value: "",
   total: [],
 };
@@ -21,7 +26,14 @@ export const queryParamReducer = (state = initState, action: Action) => {
     case SET_QUERY_PARAMS_KEY:
       return {
         ...state,
-        key: action.payload?.key,
+        keyValue: action.payload?.keyValue,
+      };
+    case ADD_KEY_VALUE_TO_TOTAL:
+      return {
+        ...state,
+        total: [...state.total, state.keyValue, state.value],
+        keyValue: "",
+        value: "",
       };
     default:
       return state;

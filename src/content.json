@@ -12,5 +12,12 @@
             "PUT",
             "DELETE"
         ]
+    },
+    "queryParams": {
+        "header": "Query Params",
+        "keyValuePair": "Key/Value: "
+    },
+    "searchContainer": {
+        "header": "Search"
     }
 }
