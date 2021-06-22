@@ -7,8 +7,15 @@ function AddQueryParamButton(props: any) {
     e.preventDefault();
     const { setKeyValueToTotal } = props;
     setKeyValueToTotal();
+    props.addInputToState(Math.random() * 1000000);
   };
-  return <button onClick={handleSetKeyValueToTotal}>Add</button>;
+  return (
+    <>
+      <button style={{ margin: "1.6rem 0" }} onClick={handleSetKeyValueToTotal}>
+        Add Params
+      </button>
+    </>
+  );
 }
 
 const mapStateToProps = (state: any) => {

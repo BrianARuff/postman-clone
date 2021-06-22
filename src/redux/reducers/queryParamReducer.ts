@@ -31,7 +31,7 @@ export const queryParamReducer = (state = initState, action: Action) => {
     case ADD_KEY_VALUE_TO_TOTAL:
       return {
         ...state,
-        total: [...state.total, state.keyValue, state.value],
+        total: [...state.total, { [state.keyValue]: state.value }],
         keyValue: "",
         value: "",
       };

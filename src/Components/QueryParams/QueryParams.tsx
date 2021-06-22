@@ -5,8 +5,32 @@ import { setQueryParamsKey } from "../../redux/actions/setQueryParamsKey";
 import AddQueryParamButton from "../AddQueryParamButton/AddQueryParamButton";
 import "./QueryParams";
 import content from "../../content.json";
+import { useState } from "react";
 
 function QueryParams(props: any) {
+  const [inputs, setInputs] = useState<any[]>([]);
+
+  function addInputToState(index: number) {
+    const inputField = (
+      <div style={{ margin: "1.6rem 0" }} key={index}>
+        <input
+          onChange={handleSetQueryParamsKey}
+          type="text"
+          placeholder="key"
+          name="keyValue"
+        />
+        <input
+          onChange={handleSetQueryParamsValue}
+          type="text"
+          placeholder="value"
+          name="value"
+        />
+        <br />
+      </div>
+    );
+    setInputs(() => [...inputs, inputField]);
+  }
+
   const handleSetQueryParamsKey = (e: any) => {
     const { setQueryParamsKey } = props;
     setQueryParamsKey({
@@ -21,32 +45,13 @@ function QueryParams(props: any) {
     });
   };
 
-  const { total } = props;
-  const tupleTotal = total.reduce(function (r: any[][], a: [], i: number) {
-    if (i % 2) {
-      r[r.length - 1].push(a);
-    } else {
-      r.push([a]);
-    }
-    return r;
-  }, []);
-
   const { queryParams } = content;
-  const { header, keyValuePair } = queryParams;
+  const { header } = queryParams;
 
   return (
     <div style={{ textAlign: "center" }}>
-      <hr />
       <h4 style={{ textAlign: "center" }}>{header}</h4>
-      <ul>
-        {tupleTotal.map((items: []) => {
-          return (
-            <p>
-              {keyValuePair} {JSON.stringify(items, null, 2)}
-            </p>
-          );
-        })}
-      </ul>
+      <AddQueryParamButton addInputToState={addInputToState} /> <br />
       <input
         onChange={handleSetQueryParamsKey}
         type="text"
@@ -59,8 +64,9 @@ function QueryParams(props: any) {
         placeholder="value"
         name="value"
       />
-      <AddQueryParamButton />
-      <hr />
+      {inputs.map((input) => {
+        return { ...input };
+      })}
     </div>
   );
 }
