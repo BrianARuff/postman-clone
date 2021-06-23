@@ -2,34 +2,22 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { setQueryParamsValue } from "../../redux/actions/setQueryParamsValue";
 import { setQueryParamsKey } from "../../redux/actions/setQueryParamsKey";
+import { setQueryParamsId } from "../../redux/actions/setQueryParamsId";
+import { deleteParamPair } from "../../redux/actions/deleteParamPair";
 import AddQueryParamButton from "../AddQueryParamButton/AddQueryParamButton";
 import "./QueryParams";
 import content from "../../content.json";
 import { useState } from "react";
+import InputField from "../InputField/InputField";
 
 function QueryParams(props: any) {
-  const [inputs, setInputs] = useState<any[]>([]);
+  const [id, setId] = useState(0);
 
-  function addInputToState(index: number) {
-    const inputField = (
-      <div style={{ margin: "1.6rem 0" }} key={index}>
-        <input
-          onChange={handleSetQueryParamsKey}
-          type="text"
-          placeholder="key"
-          name="keyValue"
-        />
-        <input
-          onChange={handleSetQueryParamsValue}
-          type="text"
-          placeholder="value"
-          name="value"
-        />
-        <br />
-      </div>
-    );
-    setInputs(() => [...inputs, inputField]);
-  }
+  const handleDeleteParamPair = (e: any) => {
+    e.preventDefault();
+    const { deleteParamPair } = props;
+    deleteParamPair(props.total[0]?.id);
+  };
 
   const handleSetQueryParamsKey = (e: any) => {
     const { setQueryParamsKey } = props;
@@ -51,22 +39,41 @@ function QueryParams(props: any) {
   return (
     <div style={{ textAlign: "center" }}>
       <h4 style={{ textAlign: "center" }}>{header}</h4>
-      <AddQueryParamButton addInputToState={addInputToState} /> <br />
-      <input
-        onChange={handleSetQueryParamsKey}
-        type="text"
-        placeholder="key"
-        name="keyValue"
-      />
-      <input
-        onChange={handleSetQueryParamsValue}
-        type="text"
-        placeholder="value"
-        name="value"
-      />
-      {inputs.map((input) => {
-        return { ...input };
-      })}
+      <div>
+        <AddQueryParamButton id={id} setId={setId} /> <br />
+        <input
+          onChange={handleSetQueryParamsKey}
+          type="text"
+          placeholder="new key"
+          name="keyValue"
+        />
+        <input
+          onChange={handleSetQueryParamsValue}
+          type="text"
+          placeholder="newvalue"
+          name="value"
+        />
+        <button onClick={handleDeleteParamPair}>Delete</button>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          textAlign: "center",
+          justifyContent: "center",
+          flexFlow: "column nowrap",
+        }}
+      >
+        {props.total.map((param: any) => {
+          return (
+            <InputField
+              id={param.id}
+              key={param.id}
+              handleSetQueryParamsKey={handleSetQueryParamsKey}
+              handleSetQueryParamsValue={handleSetQueryParamsValue}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -82,6 +89,8 @@ const mapDispatchToProps = (dispatch: any) => {
     {
       setQueryParamsValue,
       setQueryParamsKey,
+      setQueryParamsId,
+      deleteParamPair,
     },
     dispatch
   );

@@ -1,13 +1,15 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { setKeyValueToTotal } from "../../redux/actions/setKeyValueToTotal";
+import { setQueryParamsId } from "../../redux/actions/setQueryParamsId";
 
 function AddQueryParamButton(props: any) {
   const handleSetKeyValueToTotal = (e: any) => {
     e.preventDefault();
-    const { setKeyValueToTotal } = props;
+    const { setKeyValueToTotal, id } = props;
+    props.setQueryParamsId({ id });
+    props.setId(id + 1);
     setKeyValueToTotal();
-    props.addInputToState(Math.random() * 1000000);
   };
   return (
     <>
@@ -29,6 +31,7 @@ const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators(
     {
       setKeyValueToTotal,
+      setQueryParamsId,
     },
     dispatch
   );
