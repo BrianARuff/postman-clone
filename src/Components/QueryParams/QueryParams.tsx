@@ -11,26 +11,23 @@ import { useState } from "react";
 import InputField from "../InputField/InputField";
 
 function QueryParams(props: any) {
-  const [id, setId] = useState(0);
+  const { setQueryParamsKey, setQueryParamsValue } = props;
 
-  const handleDeleteParamPair = (e: any) => {
-    e.preventDefault();
-    const { deleteParamPair } = props;
-    deleteParamPair(props.total[0]?.id);
-  };
+  const [id, setId] = useState(0);
+  const [formData, setFormData] = useState<{ value: string; keyValue: string }>(
+    { value: "", keyValue: "" }
+  );
 
   const handleSetQueryParamsKey = (e: any) => {
-    const { setQueryParamsKey } = props;
-    setQueryParamsKey({
-      [e.target.name]: e.target.value,
-    });
+    setQueryParamsKey(formData);
   };
 
   const handleSetQueryParamsValue = (e: any) => {
-    const { setQueryParamsValue } = props;
-    setQueryParamsValue({
-      [e.target.name]: e.target.value,
-    });
+    setQueryParamsValue(formData);
+  };
+
+  const handleKeyChange = (e: any) => {
+    setFormData(() => ({ ...formData, [e.target.name]: e.target.value }));
   };
 
   const { queryParams } = content;
@@ -40,20 +37,25 @@ function QueryParams(props: any) {
     <div style={{ textAlign: "center" }}>
       <h4 style={{ textAlign: "center" }}>{header}</h4>
       <div>
-        <AddQueryParamButton id={id} setId={setId} /> <br />
+        <AddQueryParamButton
+          id={id}
+          setId={setId}
+          handleSetQueryParamsKey={handleSetQueryParamsKey}
+          handleSetQueryParamsValue={handleSetQueryParamsValue}
+        />{" "}
+        <br />
         <input
-          onChange={handleSetQueryParamsKey}
+          onChange={handleKeyChange}
           type="text"
           placeholder="new key"
           name="keyValue"
         />
         <input
-          onChange={handleSetQueryParamsValue}
+          onChange={handleKeyChange}
           type="text"
-          placeholder="newvalue"
+          placeholder="new value"
           name="value"
         />
-        <button onClick={handleDeleteParamPair}>Delete</button>
       </div>
       <div
         style={{
@@ -68,8 +70,9 @@ function QueryParams(props: any) {
             <InputField
               id={param.id}
               key={param.id}
-              handleSetQueryParamsKey={handleSetQueryParamsKey}
-              handleSetQueryParamsValue={handleSetQueryParamsValue}
+              keyValue={param.keyValue}
+              valueValue={param.value}
+              setQueryParamsId={setQueryParamsId}
             />
           );
         })}

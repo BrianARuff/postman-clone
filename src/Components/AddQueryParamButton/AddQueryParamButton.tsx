@@ -5,10 +5,18 @@ import { setQueryParamsId } from "../../redux/actions/setQueryParamsId";
 
 function AddQueryParamButton(props: any) {
   const handleSetKeyValueToTotal = (e: any) => {
-    e.preventDefault();
-    const { setKeyValueToTotal, id } = props;
-    props.setQueryParamsId({ id });
-    props.setId(id + 1);
+    const {
+      setKeyValueToTotal,
+      setId,
+      id,
+      setQueryParamsId,
+      handleSetQueryParamsKey,
+      handleSetQueryParamsValue,
+    } = props;
+    handleSetQueryParamsKey();
+    handleSetQueryParamsValue();
+    setQueryParamsId({ id });
+    setId(id + 1);
     setKeyValueToTotal();
   };
   return (

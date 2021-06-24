@@ -3,25 +3,15 @@ import { bindActionCreators } from "redux";
 import { deleteParamPair } from "../../redux/actions/deleteParamPair";
 
 function InputField(props: any) {
+  const { id, deleteParamPair, valueValue, keyValue } = props;
   const handleDeleteParamPair = (e: any) => {
     e.preventDefault();
-    const { id, deleteParamPair } = props;
-    deleteParamPair(id + 1);
+    deleteParamPair(id);
   };
   return (
     <div>
-      <input
-        onChange={props.handleSetQueryParamsKey}
-        type="text"
-        placeholder="key"
-        name="keyValue"
-      />
-      <input
-        onChange={props.handleSetQueryParamsValue}
-        type="text"
-        placeholder="value"
-        name="value"
-      />
+      <input value={valueValue} type="text" placeholder="key" name="keyValue" />
+      <input value={keyValue} type="text" placeholder="value" name="value" />
       <button onClick={handleDeleteParamPair}>Delete</button>
     </div>
   );

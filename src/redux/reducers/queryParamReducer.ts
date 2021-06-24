@@ -23,24 +23,24 @@ export const queryParamReducer = (state = initState, action: Action) => {
     case SET_QUERY_PARAMS_VALUE:
       return {
         ...state,
-        value: action.payload?.value,
+        value: action.payload.value,
       };
     case SET_QUERY_PARAMS_KEY:
       return {
         ...state,
-        keyValue: action.payload?.keyValue,
+        keyValue: action.payload.keyValue,
       };
     case SET_QUERY_PARAMS_ID:
       return {
         ...state,
-        id: action.payload?.id,
+        id: action.payload.id,
       };
     case ADD_KEY_VALUE_TO_TOTAL:
       return {
         ...state,
         total: [
           ...state.total,
-          { [state.keyValue]: state.value, id: state.id },
+          { keyValue: state.keyValue, value: state.value, id: state.id },
         ],
       };
     case REMOVE_PARAM_PAIR:
