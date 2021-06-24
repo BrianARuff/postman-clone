@@ -10,8 +10,20 @@ function InputField(props: any) {
   };
   return (
     <div>
-      <input value={valueValue} type="text" placeholder="key" name="keyValue" />
-      <input value={keyValue} type="text" placeholder="value" name="value" />
+      <input
+        disabled
+        value={valueValue}
+        type="text"
+        placeholder="key"
+        name="keyValue"
+      />
+      <input
+        disabled
+        value={keyValue}
+        type="text"
+        placeholder="value"
+        name="value"
+      />
       <button onClick={handleDeleteParamPair}>Delete</button>
     </div>
   );
