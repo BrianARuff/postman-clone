@@ -4,41 +4,46 @@ import { bindActionCreators } from "redux";
 import { setKeyValueToTotal } from "../../redux/actions/setKeyValueToTotal";
 import { setQueryParamsId } from "../../redux/actions/setQueryParamsId";
 import { setSearchItem } from "../../redux/actions/setSearchItem";
+import content from "../../content.json";
 
-interface Props {
-  setKeyValueToTotal: any;
-  setId: any;
+interface SearchItem {
+  keyValue: string;
+  value: string;
   id: number;
-  setQueryParamsId: any;
-  handleSetQueryParamsKey: any;
-  handleSetQueryParamsValue: any;
 }
 
-class AddQueryParamButton extends React.Component<Props> {
+interface Props {
+  setSearchItem: any;
+  searchAddress: string;
+  total: any[];
+}
+
+class SetParams extends React.Component<Props> {
+  state = { count: 0 };
   handleSetKeyValueToTotal = () => {
-    let {
-      setKeyValueToTotal,
-      setId,
-      id,
-      setQueryParamsId,
-      handleSetQueryParamsKey,
-      handleSetQueryParamsValue,
-    } = this.props;
-    handleSetQueryParamsKey();
-    handleSetQueryParamsValue();
-    setQueryParamsId({ id });
-    setId(id + 1);
+    let { setSearchItem, searchAddress, total } = this.props;
+    total.map((item: SearchItem) => {
+      if (!searchAddress.includes("?")) {
+        return setSearchItem({
+          address: (searchAddress += `?${item.keyValue}=${item.value}`),
+        });
+      } else {
+        return setSearchItem({
+          address: (searchAddress += `&${item.keyValue}=${item.value}`),
+        });
+      }
+    });
     setKeyValueToTotal();
   };
-
   render() {
+    const { buttontext } = content.setParams;
     return (
       <>
         <button
           style={{ margin: "1.6rem 0" }}
           onClick={this.handleSetKeyValueToTotal}
         >
-          Add Params
+          {buttontext}
         </button>
       </>
     );
@@ -65,7 +70,4 @@ const mapDispatchToProps = (dispatch: any) => {
   );
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AddQueryParamButton);
+export default connect(mapStateToProps, mapDispatchToProps)(SetParams);

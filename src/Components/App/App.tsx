@@ -3,6 +3,7 @@ import HeroImage from "../HeroImage/HeroImage";
 import MainHeader from "../MainHeader/MainHeader";
 import QueryParams from "../QueryParams/QueryParams";
 import SearchContainer from "../SearchContainer/SearchContainer";
+import SetParams from "../SetParams/SetParam";
 import "./App.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <MainHeader />
       <SearchContainer />
       <QueryParams />
+      <SetParams />
     </div>
   );
 }
