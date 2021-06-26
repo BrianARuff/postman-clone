@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { setKeyValueToTotal } from "../../redux/actions/setKeyValueToTotal";
@@ -11,7 +12,7 @@ interface SearchItem {
 }
 
 function AddQueryParamButton(props: any) {
-  const handleSetKeyValueToTotal = (e: any) => {
+  const handleSetKeyValueToTotal = () => {
     let {
       setKeyValueToTotal,
       setId,
@@ -23,23 +24,22 @@ function AddQueryParamButton(props: any) {
       searchAddress,
       total,
     } = props;
-    handleSetQueryParamsKey();
-    handleSetQueryParamsValue();
-    setQueryParamsId({ id });
-    setId(id + 1);
-    setKeyValueToTotal();
     total.map((item: SearchItem) => {
       if (!searchAddress.includes("?")) {
         setSearchItem({
           address: (searchAddress += `?${item.keyValue}=${item.value}`),
         });
       } else {
-        return setSearchItem({
+        setSearchItem({
           address: (searchAddress += `&${item.keyValue}=${item.value}`),
         });
       }
     });
-    // setSearchItem();
+    handleSetQueryParamsKey();
+    handleSetQueryParamsValue();
+    setQueryParamsId({ id });
+    setId(id + 1);
+    setKeyValueToTotal();
   };
   return (
     <>
@@ -54,8 +54,8 @@ const mapStateToProps = (state: any) => {
   return {
     keyValue: state.queryParamReducer.keyValue,
     value: state.queryParamReducer.value,
-    searchAddress: state.searchReducer.searchAddress,
     total: state.queryParamReducer.total,
+    searchAddress: state.searchReducer.searchAddress,
   };
 };
 
