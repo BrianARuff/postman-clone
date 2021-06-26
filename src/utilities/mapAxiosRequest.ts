@@ -4,12 +4,13 @@ export const mapAxiosRequest = (
   queryType = "",
   url = "",
   data = {},
-  setResponseData: any
+  setResponseData?: any,
+  options = {}
 ) => {
   if (queryType === "GET")
     return (
       axios
-        .get(url)
+        .get(url, data)
         // @ts-ignore
         .then((res) => setResponseData(res))
         .catch((err) => setResponseData(err))
@@ -21,11 +22,7 @@ export const mapAxiosRequest = (
       .then((res) => res)
       .catch((err) => err);
 
-  if (queryType === "PUT")
-    return axios
-      .put(url, data)
-      .then((res) => res)
-      .catch((err) => err);
+  if (queryType === "PUT") return axios.put(url, data).catch((err) => err);
 
   if (queryType === "PATCH")
     return axios

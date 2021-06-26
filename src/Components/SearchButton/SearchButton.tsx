@@ -11,6 +11,7 @@ function SearchButton(props: any) {
     responseData: {},
   });
   const handleHttpCall = () => {
+    console.log(props.searchAddress);
     return mapAxiosRequest(queryType, searchAddress, {}, setResponse);
   };
 
@@ -24,12 +25,8 @@ function SearchButton(props: any) {
   );
 }
 
-const mapStateToProps = (state: any) => {
-  return {};
-};
-
 const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators({}, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchButton);
+export default connect(null, mapDispatchToProps)(SearchButton);
