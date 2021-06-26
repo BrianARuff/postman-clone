@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.8.3",
     "@types/redux-thunk": "^2.1.0",
     "axios": "^0.21.1",
+    "cypress": "^7.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-json-print": "^0.1.3",
