@@ -9,16 +9,7 @@ import { APP_COMPONENT_MAIN_CONTAINER } from "../../cypressTypes/types";
 
 function App() {
   return (
-    <div
-      data-testid={APP_COMPONENT_MAIN_CONTAINER}
-      style={{
-        display: "flex",
-        flexFlow: "column nowrap",
-        justifyContent: "center",
-        alignItems: "center",
-        alignContent: "center",
-      }}
-    >
+    <div data-testid={APP_COMPONENT_MAIN_CONTAINER} className={"app-container"}>
       <HeroImage
         src={process.env.PUBLIC_URL + "/postman-logo+text-320x132.png"}
       />
