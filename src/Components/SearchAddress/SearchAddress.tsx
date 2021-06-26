@@ -18,12 +18,6 @@ function SearchAddress(props: any) {
   );
 }
 
-const mapStateToProps = (state: any) => {
-  return {
-    address: state.searchReducer.searchAddress,
-  };
-};
-
 const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators(
     {
@@ -33,4 +27,4 @@ const mapDispatchToProps = (dispatch: any) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchAddress);
+export default connect(null, mapDispatchToProps)(SearchAddress);

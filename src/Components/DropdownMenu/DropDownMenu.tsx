@@ -21,12 +21,6 @@ function DropDownMenu(props: any) {
   );
 }
 
-const mapStateToProps = (state: any) => {
-  return {
-    queryType: state.searchReducer.queryType,
-  };
-};
-
 const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators(
     {
@@ -36,4 +30,4 @@ const mapDispatchToProps = (dispatch: any) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DropDownMenu);
+export default connect(null, mapDispatchToProps)(DropDownMenu);

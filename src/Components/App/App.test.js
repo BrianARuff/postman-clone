@@ -3,12 +3,14 @@ import { Provider } from "react-redux";
 import store from "../../redux/store";
 import App from "./App";
 
-test("renders learn react link", () => {
-  render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
-  const linkElement = screen.getByText(/GET/i);
-  expect(linkElement).toBeInTheDocument();
+describe("App", () => {
+  test("renders learn react link", () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    const linkElement = screen.getByText(/GET/i);
+    expect(linkElement).toBeInTheDocument();
+  });
 });

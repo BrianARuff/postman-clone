@@ -3,6 +3,7 @@ import SearchAddress from "../SearchAddress/SearchAddress";
 import SearchButton from "../SearchButton/SearchButton";
 import content from "../../content.json";
 import { connect } from "react-redux";
+import ShowURL from "../ShowURL/ShowURL";
 
 function SearchContainer(props: any) {
   const { queryType, searchAddress } = props;
@@ -11,6 +12,7 @@ function SearchContainer(props: any) {
   return (
     <div style={{ textAlign: "center", marginTop: "1.6rem" }}>
       <h4>{header}</h4>
+      <ShowURL searchAddress={searchAddress} />
       <DropDownMenu />
       <SearchAddress />
       <SearchButton queryType={queryType} searchAddress={searchAddress} />
