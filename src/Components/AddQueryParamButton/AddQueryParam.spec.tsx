@@ -14,7 +14,7 @@ describe("AddQueryParamButton", () => {
           setId={onClick}
           handleSetQueryParamsKey={onClick}
           handleSetQueryParamsValue={onClick}
-          setKeyValueToTotal={onClick}
+          id={0}
         />
       </Provider>
     );
