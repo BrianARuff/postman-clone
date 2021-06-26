@@ -1,9 +1,9 @@
 import * as cypress from "cypress";
-import { APP_PAGE_MAIN_CONTAINER } from "../types";
+import { APP_COMPONENT_MAIN_CONTAINER } from "../../src/cypressTypes/types";
 
 class App {
   get container() {
-    return cy.get(`[data-testid=${APP_PAGE_MAIN_CONTAINER}]`);
+    return cy.get(`[data-testid=${APP_COMPONENT_MAIN_CONTAINER}]`);
   }
 }
 

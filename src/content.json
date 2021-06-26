@@ -23,5 +23,8 @@
     "mainHeader": "Postman Clone",
     "setParams": {
         "buttontext": "Set Params"
+    },
+    "addQueryParamButton": {
+        "buttonText": "Add Params"
     }
 }

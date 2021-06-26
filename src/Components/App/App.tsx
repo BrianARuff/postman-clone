@@ -5,12 +5,12 @@ import QueryParams from "../QueryParams/QueryParams";
 import SearchContainer from "../SearchContainer/SearchContainer";
 import SetParams from "../SetParams/SetParam";
 import "./App.css";
-import { APP_PAGE_MAIN_CONTAINER } from "../../../cypress/types";
+import { APP_COMPONENT_MAIN_CONTAINER } from "../../cypressTypes/types";
 
 function App() {
   return (
     <div
-      data-testid={APP_PAGE_MAIN_CONTAINER}
+      data-testid={APP_COMPONENT_MAIN_CONTAINER}
       style={{
         display: "flex",
         flexFlow: "column nowrap",

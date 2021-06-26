@@ -4,6 +4,9 @@ import { bindActionCreators } from "redux";
 import { setKeyValueToTotal } from "../../redux/actions/setKeyValueToTotal";
 import { setQueryParamsId } from "../../redux/actions/setQueryParamsId";
 import { setSearchItem } from "../../redux/actions/setSearchItem";
+import { addQueryParamButton } from "../.../../../content.json";
+import { ADD_QUERY_PARAM_BUTTON_COMPONENT_BUTTON } from "../../cypressTypes/types";
+import "./AddQueryParamButton.css";
 
 interface Props {
   setKeyValueToTotal: any;
@@ -32,13 +35,15 @@ class AddQueryParamButton extends React.Component<Props> {
   };
 
   render() {
+    const { buttonText } = addQueryParamButton;
     return (
       <>
         <button
-          style={{ margin: "1.6rem 0" }}
+          data-testid={ADD_QUERY_PARAM_BUTTON_COMPONENT_BUTTON}
+          className={"addQueryParamButtonMargin"}
           onClick={this.handleSetKeyValueToTotal}
         >
-          Add Params
+          {buttonText}
         </button>
       </>
     );

@@ -1,7 +1,11 @@
+import * as cypress from "cypress";
+
 class Init {
   default() {
     cy.server();
-    return cy.visit("https://youthful-sinoussi-a2ed6a.netlify.app/");
+  }
+  visitHomePage() {
+    cy.visit("http://localhost:3000");
   }
 }
 

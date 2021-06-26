@@ -1,11 +1,19 @@
 import { init } from "../helpers/init";
 import { app } from "../helpers/app";
+import { addQueryParamButton } from "../helpers/addQueryParamButton";
+import content from "../../src/content.json";
 
-describe("App component", () => {
+describe("App Page", () => {
+  const { buttonText } = content.addQueryParamButton;
+
   beforeEach(() => {
     init.default();
+    init.visitHomePage();
   });
-  it('has the text "..."', () => {
-    app.container.should("contain.text", "Postman Clone");
+  it("should exist", () => {
+    app.container.should("exist");
+  });
+  it(`should have the text ${buttonText}`, () => {
+    addQueryParamButton.CTA.should("have.text", buttonText);
   });
 });

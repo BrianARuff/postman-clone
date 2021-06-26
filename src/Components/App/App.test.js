@@ -4,13 +4,13 @@ import store from "../../redux/store";
 import App from "./App";
 
 describe("App", () => {
-  test("renders learn react link", () => {
+  test("renders text 'GET'", () => {
     render(
       <Provider store={store}>
         <App />
       </Provider>
     );
-    const linkElement = screen.getByText(/GET/i);
-    expect(linkElement).toBeInTheDocument();
+    const GET_text = screen.getByText(/GET/i);
+    expect(GET_text).toBeInTheDocument();
   });
 });
