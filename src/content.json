@@ -19,5 +19,6 @@
     },
     "searchContainer": {
         "header": "Search"
-    }
+    },
+    "mainHeader": "Postman Clone"
 }
