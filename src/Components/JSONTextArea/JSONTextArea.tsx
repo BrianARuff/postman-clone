@@ -30,7 +30,7 @@ function JSONTextArea(props: any): JSX.Element {
         onChange={handleSetFormData}
       />
       <button onClick={handleSetJSONData} style={{ width: "66%" }}>
-        Submit
+        Set JSON
       </button>
     </>
   );

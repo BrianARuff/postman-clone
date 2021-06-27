@@ -6,13 +6,14 @@ import ReactJson from "react-json-view";
 import { mapAxiosRequest } from "../../utilities/mapAxiosRequest";
 
 function SearchButton(props: any) {
-  const { queryType, searchAddress } = props;
+  const { queryType, searchAddress, jsonData } = props;
+  const { jsonData: json } = jsonData;
   const [response, setResponse] = useState({
     responseData: {},
   });
   const handleHttpCall = () => {
     console.log(props.searchAddress);
-    return mapAxiosRequest(queryType, searchAddress, {}, setResponse);
+    return mapAxiosRequest(queryType, searchAddress, json, setResponse);
   };
 
   return (
@@ -25,8 +26,14 @@ function SearchButton(props: any) {
   );
 }
 
+const mapStateToProps = (state: any) => {
+  return {
+    jsonData: state.JSONDataReducer.jsonData,
+  };
+};
+
 const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators({}, dispatch);
 };
 
-export default connect(null, mapDispatchToProps)(SearchButton);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchButton);
