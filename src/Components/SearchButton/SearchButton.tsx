@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { searchButton } from "../../content.json";
 import { useState } from "react";
-import ReactJsonPrint from "react-json-print";
+import ReactJson from "react-json-view";
 import { mapAxiosRequest } from "../../utilities/mapAxiosRequest";
 
 function SearchButton(props: any) {
@@ -20,7 +20,7 @@ function SearchButton(props: any) {
       <button style={{ marginBottom: "20px" }} onClick={handleHttpCall}>
         {searchButton.text}
       </button>
-      <ReactJsonPrint dataObject={response} />
+      <ReactJson src={response} theme={"bright:inverted"} />
     </>
   );
 }

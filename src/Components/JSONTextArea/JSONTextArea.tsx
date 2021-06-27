@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { connect } from "react-redux";
+import { TextareaAutosize } from "@material-ui/core";
 
 interface JSONText {
   json: string;
@@ -12,10 +13,12 @@ function JSONTextArea(): JSX.Element {
   };
   return (
     <>
-      <label htmlFor="jsonData">Enter JSON in Text Area Below: </label>
-      <textarea
+      <label mx-3 htmlFor="jsonData">
+        Enter JSON in Text Area Below:{" "}
+      </label>
+      <TextareaAutosize
         id="jsonData"
-        rows={10}
+        rows={20}
         cols={100}
         name="json"
         onChange={handleSetFormData}
