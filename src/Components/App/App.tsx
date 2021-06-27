@@ -4,6 +4,7 @@ import MainHeader from "../MainHeader/MainHeader";
 import QueryParams from "../QueryParams/QueryParams";
 import SearchContainer from "../SearchContainer/SearchContainer";
 import SetParams from "../SetParams/SetParam";
+import JSONTextArea from "../JSONTextArea/JSONTextArea";
 import "./App.css";
 import { APP_COMPONENT_MAIN_CONTAINER } from "../../cypressTypes/types";
 
@@ -17,6 +18,7 @@ function App() {
       <SearchContainer />
       <QueryParams />
       <SetParams />
+      <JSONTextArea />
     </div>
   );
 }
