@@ -17,8 +17,8 @@ function App() {
       <div className="reverse-container">
         <SearchContainer />
         <QueryParams />
-        <SetParams />
       </div>
+      <SetParams />
       <JSONTextArea />
     </div>
   );
