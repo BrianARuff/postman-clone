@@ -40,12 +40,7 @@ class SetParamsButton extends React.Component<Props> {
     const { buttontext } = content.setParams;
     return (
       <Tooltip title="Click to set your added params to the search URL">
-        <button
-          style={{ margin: "1.6rem 0" }}
-          onClick={this.handleSetKeyValueToTotal}
-        >
-          {buttontext}
-        </button>
+        <button onClick={this.handleSetKeyValueToTotal}>{buttontext}</button>
       </Tooltip>
     );
   }

@@ -34,16 +34,15 @@ function QueryParams(props: any) {
   const { header } = queryParams;
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h4 style={{ textAlign: "center" }}>{header}</h4>
-      <div>
+    <div className="container">
+      <h4>{header}</h4>
+      <div className="container">
         <AddQueryParamButton
           id={id}
           setId={setId}
           handleSetQueryParamsKey={handleSetQueryParamsKey}
           handleSetQueryParamsValue={handleSetQueryParamsValue}
-        />{" "}
-        <br />
+        />
         <input
           onChange={handleKeyChange}
           type="text"
@@ -57,14 +56,7 @@ function QueryParams(props: any) {
           name="value"
         />
       </div>
-      <div
-        style={{
-          display: "flex",
-          textAlign: "center",
-          justifyContent: "center",
-          flexFlow: "column nowrap",
-        }}
-      >
+      <div>
         {props.total.map((param: any) => {
           return (
             <InputField

@@ -10,7 +10,7 @@ function SearchContainer(props: any) {
   const { searchContainer } = content;
   const { header } = searchContainer;
   return (
-    <div style={{ textAlign: "center", marginTop: "1.6rem" }}>
+    <div className="container">
       <h4>{header}</h4>
       <ShowURL searchAddress={searchAddress} />
       <DropDownMenu />

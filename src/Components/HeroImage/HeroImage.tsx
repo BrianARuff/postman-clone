@@ -1,4 +1,6 @@
+import "./HeroImage.css";
+
 export default function HeroImage(props: { src: string }) {
   const { src } = props;
-  return <img style={{ textAlign: "center" }} alt="Hero" src={src}></img>;
+  return <img className="img-align-center" alt="Hero" src={src}></img>;
 }

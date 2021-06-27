@@ -13,16 +13,13 @@ function SearchButton(props: any) {
     responseData: {},
   });
   const handleHttpCall = () => {
-    console.log(props.searchAddress);
     return mapAxiosRequest(queryType, searchAddress, json, setResponse);
   };
 
   return (
     <>
       <Tooltip title="Click to send request">
-        <button style={{ marginBottom: "20px" }} onClick={handleHttpCall}>
-          {searchButton.text}
-        </button>
+        <button onClick={handleHttpCall}>{searchButton.text}</button>
       </Tooltip>
       <ReactJson src={response} theme={"bright:inverted"} />
     </>

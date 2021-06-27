@@ -7,7 +7,7 @@ import { setSearchItem } from "../../redux/actions/setSearchItem";
 import { addQueryParamButton } from "../.../../../content.json";
 import { ADD_QUERY_PARAM_BUTTON_COMPONENT_BUTTON } from "../../cypressTypes/types";
 import "./AddQueryParamButton.css";
-import { TabProps, Tooltip } from "@material-ui/core";
+import { Tooltip } from "@material-ui/core";
 
 interface Props {
   setKeyValueToTotal: any;

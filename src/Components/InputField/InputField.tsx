@@ -9,7 +9,7 @@ function InputField(props: any) {
     deleteParamPair(id);
   };
   return (
-    <div>
+    <div className="container">
       <input
         disabled
         value={valueValue}
