@@ -57,17 +57,27 @@ function QueryParams(props: any) {
         />
       </div>
       <div>
-        {props.total.map((param: any) => {
-          return (
-            <InputField
-              id={param.id}
-              key={param.id}
-              keyValue={param.keyValue}
-              valueValue={param.value}
-              setQueryParamsId={setQueryParamsId}
-            />
-          );
-        })}
+        {props.total.map(
+          ({
+            id,
+            keyValue,
+            value,
+          }: {
+            id: number;
+            keyValue: string;
+            value: string;
+          }) => {
+            return (
+              <InputField
+                id={id}
+                key={id}
+                keyValue={keyValue}
+                valueValue={value}
+                setQueryParamsId={setQueryParamsId}
+              />
+            );
+          }
+        )}
       </div>
     </div>
   );
