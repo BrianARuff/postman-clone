@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { InputLabel } from "@material-ui/core";
 import { bindActionCreators } from "redux";
 import { setJsonData } from "../../redux/actions/setJSONData";
+import JSONTextAreaButton from "../JSONTextAreaButton/JSONTextAreaButton";
 
 interface JSONText {
   jsonData: string;
@@ -18,7 +19,7 @@ function JSONTextArea(props: any): JSX.Element {
     setJsonData({ ...formData });
   };
   return (
-    <>
+    <div>
       <InputLabel htmlFor="jsonData">
         Enter JSON in Text Area Below:{" "}
       </InputLabel>
@@ -29,10 +30,8 @@ function JSONTextArea(props: any): JSX.Element {
         name="jsonData"
         onChange={handleSetFormData}
       />
-      <button onClick={handleSetJSONData} style={{ width: "66%" }}>
-        Set JSON
-      </button>
-    </>
+      <JSONTextAreaButton handleSetJSONData={handleSetJSONData} />
+    </div>
   );
 }
 

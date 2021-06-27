@@ -4,6 +4,7 @@ import { searchButton } from "../../content.json";
 import { useState } from "react";
 import ReactJson from "react-json-view";
 import { mapAxiosRequest } from "../../utilities/mapAxiosRequest";
+import { Tooltip } from "@material-ui/core";
 
 function SearchButton(props: any) {
   const { queryType, searchAddress, jsonData } = props;
@@ -18,9 +19,11 @@ function SearchButton(props: any) {
 
   return (
     <>
-      <button style={{ marginBottom: "20px" }} onClick={handleHttpCall}>
-        {searchButton.text}
-      </button>
+      <Tooltip title="Click to send request">
+        <button style={{ marginBottom: "20px" }} onClick={handleHttpCall}>
+          {searchButton.text}
+        </button>
+      </Tooltip>
       <ReactJson src={response} theme={"bright:inverted"} />
     </>
   );

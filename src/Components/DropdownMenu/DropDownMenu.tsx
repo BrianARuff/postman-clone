@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { dropDownMenu } from "../../content.json";
 import { setQueryType } from "../../redux/actions/setQueryType";
+import { DROP_DOWN_MENU_COMPONENT } from "../../cypressTypes/types";
 
 function DropDownMenu(props: any) {
   const handleSelectQueryType = (e: any) => {
@@ -9,7 +10,11 @@ function DropDownMenu(props: any) {
     setQueryType({ queryType: e.target.value });
   };
   return (
-    <select onChange={handleSelectQueryType} name="queryType">
+    <select
+      data-testid={DROP_DOWN_MENU_COMPONENT}
+      onChange={handleSelectQueryType}
+      name="queryType"
+    >
       {dropDownMenu.options.map((option, index) => {
         return (
           <option value={option} key={index}>

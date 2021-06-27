@@ -3,7 +3,7 @@ import HeroImage from "../HeroImage/HeroImage";
 import MainHeader from "../MainHeader/MainHeader";
 import QueryParams from "../QueryParams/QueryParams";
 import SearchContainer from "../SearchContainer/SearchContainer";
-import SetParams from "../SetParams/SetParam";
+import SetParams from "../SetParamsButton/SetParamsButton";
 import JSONTextArea from "../JSONTextArea/JSONTextArea";
 import "./App.css";
 import { APP_COMPONENT_MAIN_CONTAINER } from "../../cypressTypes/types";

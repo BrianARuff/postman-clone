@@ -5,6 +5,7 @@ import { setKeyValueToTotal } from "../../redux/actions/setKeyValueToTotal";
 import { setQueryParamsId } from "../../redux/actions/setQueryParamsId";
 import { setSearchItem } from "../../redux/actions/setSearchItem";
 import content from "../../content.json";
+import { Tooltip } from "@material-ui/core";
 
 interface SearchItem {
   keyValue: string;
@@ -18,7 +19,7 @@ interface Props {
   total: any[];
 }
 
-class SetParams extends React.Component<Props> {
+class SetParamsButton extends React.Component<Props> {
   state = { count: 0 };
   handleSetKeyValueToTotal = () => {
     let { setSearchItem, searchAddress, total } = this.props;
@@ -38,14 +39,14 @@ class SetParams extends React.Component<Props> {
   render() {
     const { buttontext } = content.setParams;
     return (
-      <>
+      <Tooltip title="Click to set your added params to the search URL">
         <button
           style={{ margin: "1.6rem 0" }}
           onClick={this.handleSetKeyValueToTotal}
         >
           {buttontext}
         </button>
-      </>
+      </Tooltip>
     );
   }
 }
@@ -70,4 +71,4 @@ const mapDispatchToProps = (dispatch: any) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SetParams);
+export default connect(mapStateToProps, mapDispatchToProps)(SetParamsButton);

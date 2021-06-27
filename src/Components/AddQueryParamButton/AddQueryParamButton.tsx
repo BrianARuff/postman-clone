@@ -7,6 +7,7 @@ import { setSearchItem } from "../../redux/actions/setSearchItem";
 import { addQueryParamButton } from "../.../../../content.json";
 import { ADD_QUERY_PARAM_BUTTON_COMPONENT_BUTTON } from "../../cypressTypes/types";
 import "./AddQueryParamButton.css";
+import { TabProps, Tooltip } from "@material-ui/core";
 
 interface Props {
   setKeyValueToTotal: any;
@@ -37,7 +38,7 @@ class AddQueryParamButton extends React.Component<Props> {
   render() {
     const { buttonText } = addQueryParamButton;
     return (
-      <>
+      <Tooltip title="Click to add params to list of params">
         <button
           data-testid={ADD_QUERY_PARAM_BUTTON_COMPONENT_BUTTON}
           className={"addQueryParamButtonMargin"}
@@ -45,7 +46,7 @@ class AddQueryParamButton extends React.Component<Props> {
         >
           {buttonText}
         </button>
-      </>
+      </Tooltip>
     );
   }
 }
