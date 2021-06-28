@@ -1,12 +1,9 @@
+import { Typography } from "@material-ui/core";
 import { connect } from "react-redux";
 
 function ShowJSONData(props: any) {
   const { jsonData } = props;
-  return (
-    <div>
-      <pre>{jsonData}</pre>
-    </div>
-  );
+  return <Typography variant="body1">{jsonData}</Typography>;
 }
 
 const mapStateToProps = (state: any) => {
