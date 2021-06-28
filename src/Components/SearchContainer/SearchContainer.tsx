@@ -4,6 +4,7 @@ import SearchButton from "../SearchButton/SearchButton";
 import content from "../../content.json";
 import { connect } from "react-redux";
 import ShowURL from "../ShowURL/ShowURL";
+import { Typography } from "@material-ui/core";
 
 function SearchContainer(props: any) {
   const { queryType, searchAddress } = props;
@@ -11,7 +12,7 @@ function SearchContainer(props: any) {
   const { header } = searchContainer;
   return (
     <div className="container">
-      <h4>{header}</h4>
+      <Typography variant="h4">{header}</Typography>
       <ShowURL searchAddress={searchAddress} />
       <DropDownMenu />
       <SearchAddress />

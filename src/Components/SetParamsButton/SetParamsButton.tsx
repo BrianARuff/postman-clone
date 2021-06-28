@@ -5,7 +5,7 @@ import { setKeyValueToTotal } from "../../redux/actions/setKeyValueToTotal";
 import { setQueryParamsId } from "../../redux/actions/setQueryParamsId";
 import { setSearchItem } from "../../redux/actions/setSearchItem";
 import content from "../../content.json";
-import { Tooltip } from "@material-ui/core";
+import { Button, Tooltip } from "@material-ui/core";
 
 interface SearchItem {
   keyValue: string;
@@ -40,7 +40,14 @@ class SetParamsButton extends React.Component<Props> {
     const { buttontext } = content.setParams;
     return (
       <Tooltip title="Click to set your added params to the search URL">
-        <button onClick={this.handleSetKeyValueToTotal}>{buttontext}</button>
+        <Button
+          style={{ margin: "1rem" }}
+          variant="contained"
+          color="primary"
+          onClick={this.handleSetKeyValueToTotal}
+        >
+          {buttontext}
+        </Button>
       </Tooltip>
     );
   }

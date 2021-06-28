@@ -26,5 +26,14 @@
     },
     "addQueryParamButton": {
         "buttonText": "Add Params"
+    },
+    "inputField": {
+        "buttonText": "Delete"
+    },
+    "JSONTextAreaButton": {
+        "buttonText": "Set JSON"
+    },
+    "JSONTextArea": {
+        "labelText": "Enter JSON in Text Area Below: "
     }
 }

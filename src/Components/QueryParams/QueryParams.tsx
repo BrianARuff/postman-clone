@@ -9,6 +9,7 @@ import "./QueryParams";
 import content from "../../content.json";
 import { useState } from "react";
 import InputField from "../InputField/InputField";
+import { TextField, Typography } from "@material-ui/core";
 
 function QueryParams(props: any) {
   const { setQueryParamsKey, setQueryParamsValue } = props;
@@ -34,26 +35,30 @@ function QueryParams(props: any) {
   const { header } = queryParams;
 
   return (
-    <div className="container">
-      <h4>{header}</h4>
+    <div style={{ margin: "1rem" }} className="container">
+      <Typography style={{ margin: "1rem" }} variant={"h4"}>
+        {header}
+      </Typography>
       <div className="container">
-        <AddQueryParamButton
-          id={id}
-          setId={setId}
-          handleSetQueryParamsKey={handleSetQueryParamsKey}
-          handleSetQueryParamsValue={handleSetQueryParamsValue}
-        />
-        <input
+        <TextField
+          style={{ width: "300px", margin: "1rem" }}
           onChange={handleKeyChange}
           type="text"
           placeholder="new key"
           name="keyValue"
         />
-        <input
+        <TextField
+          style={{ width: "300px", margin: "1rem" }}
           onChange={handleKeyChange}
           type="text"
           placeholder="new value"
           name="value"
+        />
+        <AddQueryParamButton
+          id={id}
+          setId={setId}
+          handleSetQueryParamsKey={handleSetQueryParamsKey}
+          handleSetQueryParamsValue={handleSetQueryParamsValue}
         />
       </div>
       <div>

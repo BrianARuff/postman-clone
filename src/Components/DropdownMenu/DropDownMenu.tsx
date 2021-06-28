@@ -7,6 +7,7 @@ import {
   DROP_DOWN_MENU_COMPONENT_SELECT_BOX,
 } from "../../cypressTypes/types";
 import { Tooltip } from "@material-ui/core";
+import { Select, MenuItem } from "@material-ui/core";
 
 function DropDownMenu(props: any) {
   const handleSelectQueryType = (e: any) => {
@@ -14,25 +15,26 @@ function DropDownMenu(props: any) {
     setQueryType({ queryType: e.target.value });
   };
   return (
-    <div className="container">
-      <Tooltip title="Click and Select an Method">
-        <select
+    <div style={{ width: "300px" }} className="container">
+      <Tooltip style={{ width: "300px" }} title="Click and Select an Method">
+        <Select
+          defaultValue={"GET"}
           data-testid={DROP_DOWN_MENU_COMPONENT_SELECT_BOX}
           onChange={handleSelectQueryType}
           name="queryType"
         >
           {dropDownMenu.options.map((option, index) => {
             return (
-              <option
+              <MenuItem
                 data-testid={DROP_DOWN_MENU_COMPONENT_OPTION_ITEM}
                 value={option}
                 key={index}
               >
                 {option}
-              </option>
+              </MenuItem>
             );
           })}
-        </select>
+        </Select>
       </Tooltip>
     </div>
   );

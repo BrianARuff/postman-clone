@@ -1,31 +1,52 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { deleteParamPair } from "../../redux/actions/deleteParamPair";
+import content from "../../content.json";
+import { TextField, Button } from "@material-ui/core";
 
 function InputField(props: any) {
   const { id, deleteParamPair, valueValue, keyValue } = props;
+  const { inputField } = content;
+  const { buttonText } = inputField;
+
   const handleDeleteParamPair = (e: any) => {
     e.preventDefault();
     deleteParamPair(id);
   };
   return (
-    <div className="container">
-      <input
+    <form
+      style={{
+        border: "1px solid black",
+        margin: "1rem",
+        padding: "1rem",
+        borderRadius: "3px",
+      }}
+      className="container"
+    >
+      <TextField
+        style={{ width: "300px", margin: "1rem" }}
         disabled
         value={valueValue}
         type="text"
-        placeholder="key"
         name="keyValue"
+        placeholder={valueValue}
       />
-      <input
+      <TextField
+        style={{ width: "300px", margin: "1rem" }}
         disabled
         value={keyValue}
         type="text"
-        placeholder="value"
+        placeholder={keyValue}
         name="value"
       />
-      <button onClick={handleDeleteParamPair}>Delete</button>
-    </div>
+      <Button
+        color="secondary"
+        variant="contained"
+        onClick={handleDeleteParamPair}
+      >
+        {buttonText}
+      </Button>
+    </form>
   );
 }
 
