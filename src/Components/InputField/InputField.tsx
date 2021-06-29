@@ -3,6 +3,12 @@ import { bindActionCreators } from "redux";
 import { deleteParamPair } from "../../redux/actions/deleteParamPair";
 import content from "../../content.json";
 import { TextField, Button } from "@material-ui/core";
+import {
+  INPUT_FIELD_COMPONENT_FORM,
+  INPUT_FIELD_COMPONENT_KEY_VALUE_INPUT,
+  INPUT_FIELD_COMPONENT_VALUE_INPUT,
+} from "../../cypressTypes/types";
+import "./InputField.css";
 
 function InputField(props: any) {
   const { id, deleteParamPair, valueValue, keyValue } = props;
@@ -15,29 +21,26 @@ function InputField(props: any) {
   };
   return (
     <form
-      style={{
-        border: "1px solid black",
-        margin: "1rem",
-        padding: "1rem",
-        borderRadius: "3px",
-      }}
-      className="container"
+      className="container input-field-form"
+      data-testid={INPUT_FIELD_COMPONENT_FORM}
     >
       <TextField
-        style={{ width: "300px", margin: "1rem" }}
         disabled
+        className="text-field"
         value={valueValue}
         type="text"
         name="keyValue"
         placeholder={valueValue}
+        data-testid={INPUT_FIELD_COMPONENT_KEY_VALUE_INPUT}
       />
       <TextField
-        style={{ width: "300px", margin: "1rem" }}
+        className="text-field"
         disabled
         value={keyValue}
         type="text"
         placeholder={keyValue}
         name="value"
+        data-testid={INPUT_FIELD_COMPONENT_VALUE_INPUT}
       />
       <Button
         color="secondary"

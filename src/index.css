@@ -62,3 +62,8 @@ textarea {
 .w-100 {
   width: 100%;
 }
+
+.text-field {
+  width: 300px;
+  margin: 1rem;
+}

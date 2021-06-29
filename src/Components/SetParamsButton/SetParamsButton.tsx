@@ -39,7 +39,10 @@ class SetParamsButton extends React.Component<Props> {
   render() {
     const { buttontext } = content.setParams;
     return (
-      <Tooltip title="Click to set your added params to the search URL">
+      <Tooltip
+        placement="top"
+        title="Click to set your added params to the search URL"
+      >
         <Button
           style={{ margin: "1rem" }}
           variant="contained"
