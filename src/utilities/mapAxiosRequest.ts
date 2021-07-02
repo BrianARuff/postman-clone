@@ -22,13 +22,18 @@ export const mapAxiosRequest = (
       .then((res) => setResponseData(res))
       .catch((err) => setResponseData(err));
 
-  if (queryType === "PUT") return axios.put(url, data).catch((err) => err);
-
-  if (queryType === "PATCH")
+  if (queryType === "PUT")
     return axios
       .patch(url, data)
       .then((res) => setResponseData(res))
       .catch((err) => setResponseData(err));
+
+  if (queryType === "PATCH") {
+    return axios
+      .patch(url, data)
+      .then((res) => setResponseData(res))
+      .catch((err) => setResponseData(err));
+  }
 
   if (queryType === "DELETE")
     return axios
