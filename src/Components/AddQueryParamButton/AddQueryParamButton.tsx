@@ -41,7 +41,6 @@ class AddQueryParamButton extends React.Component<Props> {
       <Tooltip title="Click to add params to list of params">
         <button
           data-testid={ADD_QUERY_PARAM_BUTTON_COMPONENT_BUTTON}
-          className={"addQueryParamButtonMargin"}
           onClick={this.handleSetKeyValueToTotal}
         >
           {buttonText}
@@ -55,8 +54,6 @@ const mapStateToProps = (state: any) => {
   return {
     keyValue: state.queryParamReducer.keyValue,
     value: state.queryParamReducer.value,
-    total: state.queryParamReducer.total,
-    searchAddress: state.searchReducer.searchAddress,
   };
 };
 
