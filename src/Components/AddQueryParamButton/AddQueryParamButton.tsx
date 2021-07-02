@@ -8,7 +8,6 @@ import { addQueryParamButton } from "../.../../../content.json";
 import { ADD_QUERY_PARAM_BUTTON_COMPONENT_BUTTON } from "../../cypressTypes/types";
 import "./AddQueryParamButton.css";
 import { Tooltip } from "@material-ui/core";
-import { Button } from "@material-ui/core";
 
 interface Props {
   setKeyValueToTotal: any;
@@ -40,15 +39,13 @@ class AddQueryParamButton extends React.Component<Props> {
     const { buttonText } = addQueryParamButton;
     return (
       <Tooltip title="Click to add params to list of params">
-        <Button
-          variant="contained"
-          color="primary"
+        <button
           data-testid={ADD_QUERY_PARAM_BUTTON_COMPONENT_BUTTON}
           className={"addQueryParamButtonMargin"}
           onClick={this.handleSetKeyValueToTotal}
         >
           {buttonText}
-        </Button>
+        </button>
       </Tooltip>
     );
   }
