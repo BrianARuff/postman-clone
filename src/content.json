@@ -21,7 +21,9 @@
     "searchContainer": {
         "header": "Search"
     },
-    "mainHeader": "Postman Clone",
+    "mainHeader": {
+        "titleText": "Postman Clone"
+    },
     "setParams": {
         "buttontext": "Set Params"
     },
