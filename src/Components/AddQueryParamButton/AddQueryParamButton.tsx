@@ -38,7 +38,7 @@ class AddQueryParamButton extends React.Component<Props> {
    render() {
       const { buttonText } = addQueryParamButton;
       return (
-         <Tooltip title="Click to add params to list of params">
+         <Tooltip title="Click to add params to list of params. This does not add them to search URL. The Set Params button does that.">
             <Button
                variant="contained"
                data-testid={ADD_QUERY_PARAM_BUTTON_COMPONENT_BUTTON}

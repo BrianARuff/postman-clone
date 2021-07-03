@@ -10,6 +10,7 @@ import content from '../../content.json';
 import { useState } from 'react';
 import InputField from '../InputField/InputField';
 import { TextField, Typography } from '@material-ui/core';
+import SetParamsButton from '../SetParamsButton/SetParamsButton';
 
 function QueryParams(props: any) {
    const { setQueryParamsKey, setQueryParamsValue } = props;
@@ -85,6 +86,7 @@ function QueryParams(props: any) {
                }
             )}
          </div>
+         <SetParamsButton />
       </div>
    );
 }

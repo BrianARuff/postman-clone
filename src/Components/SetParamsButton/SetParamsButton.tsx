@@ -23,14 +23,14 @@ class SetParamsButton extends React.Component<Props> {
    state = { count: 0 };
    handleSetKeyValueToTotal = () => {
       let { setSearchItem, searchAddress, total } = this.props;
-      total.map(async (item: SearchItem) => {
+      total.map((item: SearchItem) => {
          if (searchAddress.includes('?')) {
-            await setSearchItem({
-               address: (searchAddress += `&${item.keyValue}=${item.value}`),
+            return setSearchItem({
+               address: searchAddress + `&${item.keyValue}=${item.value}`,
             });
          } else {
-            await setSearchItem({
-               address: (searchAddress += `?${item.keyValue}=${item.value}`),
+            return setSearchItem({
+               address: searchAddress + `?${item.keyValue}=${item.value}`,
             });
          }
       });
