@@ -1,5 +1,3 @@
-import React from 'react';
-import { action } from '@storybook/addon-actions';
 import MainHeader from '../Components/MainHeader';
 
 export default {
@@ -7,4 +5,4 @@ export default {
    component: MainHeader,
 };
 
-export const Title = () => <MainHeader />;
+export const MainHeaderStory = () => <MainHeader />;
