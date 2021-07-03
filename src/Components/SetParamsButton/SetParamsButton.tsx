@@ -26,11 +26,11 @@ class SetParamsButton extends React.Component<Props> {
       total.map((item: SearchItem) => {
          if (searchAddress.includes('?')) {
             return setSearchItem({
-               address: searchAddress + `&${item.keyValue}=${item.value}`,
+               address: (searchAddress += `&${item.keyValue}=${item.value}`),
             });
          } else {
             return setSearchItem({
-               address: searchAddress + `?${item.keyValue}=${item.value}`,
+               address: (searchAddress += `?${item.keyValue}=${item.value}`),
             });
          }
       });
