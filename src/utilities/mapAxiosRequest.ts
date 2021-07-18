@@ -5,7 +5,6 @@ export const mapAxiosRequest = (
   url = "",
   data = {},
   setResponseData?: any,
-  options = {}
 ) => {
   if (queryType === "GET")
     return (
@@ -16,12 +15,13 @@ export const mapAxiosRequest = (
         .catch((err) => setResponseData(err))
     );
 
-  if (queryType === "POST")
+  if (queryType === "POST") {
+  console.log(data)
     return axios
       .post(url, data)
       .then((res) => setResponseData(res))
       .catch((err) => setResponseData(err));
-
+  }
   if (queryType === "PUT")
     return axios
       .patch(url, data)

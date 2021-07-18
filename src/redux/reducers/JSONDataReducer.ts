@@ -14,7 +14,7 @@ export const JSONDataReducer = (state = initState, action: Action) => {
     case SET_JSON_DATA:
       return {
         ...state,
-        jsonData: action.payload.jsonData,
+        jsonData: JSON.stringify(action.payload.jsonData),
       };
     default:
       return state;

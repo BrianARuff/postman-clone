@@ -8,12 +8,11 @@ import JSONViewer from "../JSONViewer/JSONViewer";
 
 function SearchButton(props: any) {
   const { queryType, searchAddress, jsonData } = props;
-  const { jsonData: json } = jsonData;
   const [response, setResponse] = useState({
     responseData: {},
   });
   const handleHttpCall = () => {
-    return mapAxiosRequest(queryType, searchAddress, json, setResponse);
+    return mapAxiosRequest(queryType, searchAddress, jsonData, setResponse);
   };
 
   return (
