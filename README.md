@@ -1,1 +1,1 @@
-Link to Project [here](https://youthful-sinoussi-a2ed6a.netlify.app/)
+[Preview on Netlify](https://youthful-sinoussi-a2ed6a.netlify.app/) - It's ugly, but that's no the point :-D.
